@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+    namespace：命名空间，XxxMappper全限定名
+    getEmp：XxxMappper接口中对应方法名
+    resultType：返回值封装的类型
+    #{id}：占位符，从传递的参数取出id值
+-->
+<!--MyBatis采用的最原始的做法-->
+<!--
+<mapper namespace="com.huawei.mybatis.EmployeeMapper">
+    <select id="selectEmp" resultType="com.huawei.mybatis.entities.Employee">
+        select id, last_name lastName, email, gender from tbl_employee where id = #{id}
+    </select>
+</mapper>
+-->
+
+<!--将接口和映射文件绑定，命名空间为接口的全限定路径名-->
+<!--与EmployeeMapper接口相绑定，面向接口编程-->
+<mapper namespace="com.huawei.mybatis.mapper.EmployeeMapper">
+    <!--将标签与接口方法相绑定-->
+    <select id="getEmp" resultType="com.huawei.mybatis.entities.Employee">
+        select id, last_name lastName, email, gender from tbl_employee where id = #{id}
+    </select>
+</mapper>

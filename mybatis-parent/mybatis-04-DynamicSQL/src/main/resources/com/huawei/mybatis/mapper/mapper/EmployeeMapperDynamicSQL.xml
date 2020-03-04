@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huawei.mybatis.mapper.mapper.EmployeeMapperDynamicSQL">
+    <!--List<Employee> getEmpsByConditions(Employee employee);-->
+
+    <!--
+        <if></if>: 条件判断
+            出现条件前多余and，解决方案：
+                1. where 后添加 1=1
+                2. 使用<where></where>标签，只能移除条件拼接后字符串前的多余and，无法移除后面的and
+        <where></where>：
+    -->
+    <select id="getEmpsByConditionsIf" resultType="com.huawei.mybatis.mapper.entities.Employee">
+        select * from tbl_employee
+        <where>
+            /* test="" 使用的是OGNL表达式，详细请参考官方文档*/
+            <if test="id!=null">
+                id=#{id}
+            </if>
+            <if test="lastName!=null and lastName!=''">
+                and last_name like #{lastName}
+            </if>
+            <if test="email!=null and email!=''">
+                and email=#{email}
+            </if>
+            <if test="gender!=null">
+                and gender=#{gender}
+            </if>
+        </where>
+    </select>
+
+    <!--List<Employee> getEmpsByConditionsTrim(Employee employee);-->
+    <!--<trim></trim>：字符串截取
+    -->
+    <select id="getEmpsByConditionsTrim" resultType="com.huawei.mybatis.mapper.entities.Employee">
+        select * from tbl_employee
+        /*
+            prefix: 整个条件语句拼接的字符串前添加的前缀部分
+            prefixOverrides：整个条件语句拼接的字符串前移除多余的部分
+            suffix：整个条件语句拼接的字符串后添加的后缀部分
+            suffixOverrides：整个条件语句拼接的字符串后移除多余的部分
+        */
+        <trim prefix="where" suffixOverrides="and">
+            <if test="id!=null">
+                id=#{id} and
+            </if>
+            <if test="lastName!=null and lastName!=''">
+                last_name like #{lastName} and
+            </if>
+            <if test="email!=null and email!=''">
+                email=#{email} and
+            </if>
+            <if test="gender!=null">
+                gender=#{gender}
+            </if>
+        </trim>
+    </select>
+
+    <!--List<Employee> getEmpsByConditionsChoose(Employee employee);-->
+    <select id="getEmpsByConditionsChoose" resultType="com.huawei.mybatis.mapper.entities.Employee">
+        select * from tbl_employee
+        <where>
+        /*
+        choose 选择条件语句
+            如果一个条件满足，就不会查询另外的其他条件，每次只会查询一个条件
+            相当于添加了break的switch...case语句;
+        */
+            <choose>
+                <when test="id!=null">
+                    id = #{id}
+                </when>
+                <when test="lastName!=null">
+                    last_name like #{lastName}
+                </when>
+                <when test="email!=null">
+                    email = #{email}
+                </when>
+                <otherwise>
+                    gender = 0
+                </otherwise>
+            </choose>
+        </where>
+
+    </select>
+
+    <!-- <set></set> 标签的使用-->
+    <!--void updateEmp(Employee employee)-->
+    <update id="updateEmpSet">
+        update tbl_employee
+        <set>
+            <if test="lastName!=null">
+                last_name=#{lastName},
+            </if>
+            <if test="email!=null">
+                email=#{email},
+            </if>
+            <if test="gender!=null">
+                gender=#{gender}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <!--foreach标签使用-->
+    <!--List<Employee> getEmpsByConditionsForeach(List<Integer> ids)-->
+    <!--
+            collection：指定要遍历的集合
+            item：将当前遍历出的元素赋值给指定变量
+            separator：每个元素之间的分割符
+            open：遍历出结果拼接字符串的开始部分
+            close：遍历出结果拼接字符串的结束部分
+            index：索引。
+                遍历list时，index=索引，item=当前值
+                遍历map时，index=map's key，item=map's value
+        -->
+    <select id="getEmpsByConditionsForeach" resultType="com.huawei.mybatis.mapper.entities.Employee">
+        select * from tbl_employee
+        where id in
+        <foreach collection="ids" item="item_id"
+            separator="," open="(" close=")">
+            #{item_id}
+        </foreach>
+    </select>
+
+    <!--foreach应用于批量保存-->
+    <!--void batchSaveEmpsForeach(@Param("emps") List<Employee> emps);-->
+    <!--MySQL下批量保存，可以foreach遍历，MySQL支持values(),(),...语法-->
+    <insert id="batchSaveEmpsForeach">
+        insert into tbl_employee(last_name, email, gender, d_id)
+        VALUES
+        <foreach collection="emps" item="emp" separator=",">
+            (#{emp.lastName}, #{emp.email}, #{emp.gender}, #{emp.dept.id})
+        </foreach>
+    </insert>
+    <!-- MySQL下 支持这种方式，需要数据库连接属性：allowMultiQueries=true-->
+    <!--
+    <insert id="batchSaveEmpsForeach">
+        <foreach collection="emps" item="emp" separator=";">
+            insert into tbl_employee(last_name, email, gender, d_id)
+            VALUES (#{emp.lastName}, #{emp.email}, #{emp.gender}, #{emp.dept.id})
+        </foreach>
+    </insert>
+    -->
+</mapper>

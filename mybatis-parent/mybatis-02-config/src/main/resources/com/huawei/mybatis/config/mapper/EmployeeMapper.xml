@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+namespace：命名空间，XxxMappper全限定名
+getEmp：XxxMappper接口中对应方法名
+resultType：返回值封装的类型
+#{id}：占位符，从传递的参数取出id值
+-->
+<!--
+<mapper namespace="com.huawei.mybatis">
+    <select id="selectEmp" resultType="com.huawei.mybatis.config.entities.Employee">
+        select * from tbl_employee where id = #{id}
+    </select>
+</mapper>
+-->
+
+
+<!--与EmployeeMapper接口相绑定，面向接口编程-->
+<mapper namespace="com.huawei.mybatis.config.mapper.EmployeeMapper">
+    <select id="getEmpById" resultType="com.huawei.mybatis.config.entities.Employee">
+        select id, last_name lastName, email, gender from tbl_employee where id = #{id}
+    </select>
+</mapper>

@@ -10,6 +10,9 @@
     <description>MyBatis3学习</description>
     <modules>
         <module>mybatis-01-helloworld</module>
+        <module>mybatis-02-config</module>
+        <module>mybatis-03-mapper</module>
+        <module>mybatis-04-DynamicSQL</module>
     </modules>
 
     <!--POM父工程-->
@@ -17,28 +20,59 @@
 
     <properties>
         <log4j.version>1.2.17</log4j.version>
-        <mybatis.version>3.5.1</mybatis.version>
+        <mybatis.version>3.4.1</mybatis.version>
         <mysql.version>5.1.46</mysql.version>
+        <oracle.version>11.2</oracle.version>
+        <lombok.version>1.16.20</lombok.version>
+        <junit.version>4.12</junit.version>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-                <version>${log4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>mybatis</artifactId>
-                <version>${mybatis.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>oracle-jdbc</groupId>
+            <artifactId>oracle-jdbc</artifactId>
+            <version>${oracle.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

@@ -1,0 +1,178 @@
+单个参数：mybatis不会做特殊处理
+    #{参数名}：取出参数值
+
+多个参数：mybatis会做特殊处理
+    多个参数会被封装成一个map，
+        key:param1,param2,...,paramn(参考源码：String genericParamName = "param" + String.valueOf(i + 1);); 获取参数的索引也可以。
+        value:传入的参数值
+    #{}就是从map中获取指定的key的值。
+
+    异常：
+    ### Cause: org.apache.ibatis.binding.BindingException: Parameter 'id' not found.
+        Available parameters are [0, 1, param1, param2]
+
+    操作：
+        方法：Employee getEmpByIdAndLastName(Integer id, String lastName);
+        取值：#{id}、#{lastName}
+
+命名参数：明确指定封装参数时map的key：@Param("id")
+    多个参数会被封装成一个map，
+        key：使用@Param注解指定的值
+        value：参数值
+    #{指定的key} 取出对应的参数值
+
+POJO：
+如果多个参数正好是我们业务逻辑的数据模型，我们就可以直接传入pojo
+    #{属性名}：取出传入的pojo的属性值
+
+Map：
+如果多个参数不是业务模型中的数据，没有对应的pojo，为了方便我们直接传入map
+    #{key}：取出map中对应的值。
+
+TO：
+如果多个参数不是业务模型中的数据，但是经常要使用，推荐来编写一个TO（Transfer Object）数据传输对象
+Page{
+    int index;
+    int size;
+}
+
+==============================思考===========================
+public Employee getEmp(@Param("id")Integer id, String lastName);
+    取值：id===>#{id/param1}   lastName===>#{param2}
+
+public Employee getEmp(Integer id, @Param("e")Employee emp);
+    取值：id===>#{param1}  lastName===>#{param2.lastName/e.lastName}
+
+##特别注意：如果是Collection（List、Set）类型或者数组，
+    也会特殊处理。也是把传入的list或者数组封装在map中。
+        key：Collection(collection)、如果是List还可以使用这个key(list)
+            数组(array)
+public Employee getEmpById(List<Integer> ids);
+    取值：取出第一个id的值：#{list[0]}
+
+======================结合源码，mybatis怎么处理参数====================
+
+getEmpByIdAndLastName(@Param("id") Integer id, @Param("lastName") String lastName);
+ParamNameResolver解析参数封装map的：
+    public ParamNameResolver(Configuration config, Method method) {
+        Class<?>[] paramTypes = method.getParameterTypes();
+        Annotation[][] paramAnnotations = method.getParameterAnnotations();
+        SortedMap<Integer, String> map = new TreeMap();
+        int paramCount = paramAnnotations.length;
+
+        for(int paramIndex = 0; paramIndex < paramCount; ++paramIndex) {
+            if (!isSpecialParameter(paramTypes[paramIndex])) {
+                String name = null;
+                Annotation[] arr$ = paramAnnotations[paramIndex];
+                int len$ = arr$.length;
+
+                for(int i$ = 0; i$ < len$; ++i$) {
+                    Annotation annotation = arr$[i$];
+                    if (annotation instanceof Param) {
+                        this.hasParamAnnotation = true;
+                        name = ((Param)annotation).value(); // 赋值给name
+                        break;
+                    }
+                }
+
+                if (name == null) {
+                    if (config.isUseActualParamName()) {
+                        name = this.getActualParamName(method, paramIndex);
+                    }
+
+                    if (name == null) {
+                        name = String.valueOf(map.size());
+                    }
+                }
+
+                map.put(paramIndex, name);
+            }
+        }
+
+        this.names = Collections.unmodifiableSortedMap(map);
+    }
+    1、names {0=id, 1=lastName}，构造器的时候就确定好了
+        确定流程：
+        1）获取每一个标有@Param注解的参数的值：id、lastName; 赋值给name;
+        2）每次解析一个参数给map中保存信息：（key：参数索引，value：name的值）
+            name的值：
+                标注了@Param注解，注解中的value值
+                没有标注@Param注解：
+                    A、全局配置：useActualParamName（jdk1.8）
+                    B、name=String.valueOf(map.size()); 相当于当前元素的索引
+        {0=id, 1=lastName, 3=3
+
+
+
+    public Object getNamedParams(Object[] args) {
+        int paramCount = this.names.size();
+        if (args != null && paramCount != 0) {
+            if (!this.hasParamAnnotation && paramCount == 1) {
+                // 2、如果参数个数为一个并且没有标注@Param注解，args[0] 单个参数直接返回
+                return args[(Integer)this.names.firstKey()];
+            } else {
+                // 3、多个元素或者注解@Param参数
+                Map<String, Object> param = new ParamMap();
+                int i = 0;
+
+                // 4、遍历names：{0=id, 1=lastName}
+                for(Iterator i$ = this.names.entrySet().iterator(); i$.hasNext(); ++i) {
+                    Entry<Integer, String> entry = (Entry)i$.next();
+                    // names集合的value作为key，names集合的key又作为取值的参考args[(Integer)entry.getKey()]的取值索引
+                    // eg：{id:args[0], lastName:args[1]}
+                    param.put(entry.getValue(), args[(Integer)entry.getKey()]);
+                    // 不管是否标注@Param注解都可以通过param1,param2,...,paramn来取值的设置
+                    String genericParamName = "param" + String.valueOf(i + 1);
+                    if (!this.names.containsValue(genericParamName)) {
+                        param.put(genericParamName, args[(Integer)entry.getKey()]);
+                    }
+                }
+
+                return param;
+            }
+        } else {
+            // 1、参数为null直接返回
+            return null;
+        }
+    }
+
+====================================参数值的获取========================================
+#{}：可以获取map中的值或者pojo对象属性的值;
+${}：可以获取map中的值或者pojo对象属性的值;
+    XML Files: select id, last_name lastName, email, gender from tbl_employee where id = ${id} and last_name=#{lastName}
+    Preparing: select id, last_name lastName, email, gender from tbl_employee where id = 3 and last_name=?
+    区别：
+        #{}:是以预编译的形式，将参数设置到sql语句中，PreparedStatement，防止sql注入。
+        ${}:取出的值直接拼装在sql语句中，会有安全问题。
+        大多情况下，我们取参数的值都应该使用#{}，
+
+        原生jdbc不支持占位符的地方我们可以使用${}进行取值
+        比如分表、排序、...;按照年份分表拆分
+            select * from ${year}_salary where xxx;
+            select * from tbl_employee order by ${f_name} ${order}
+
+#{}:更丰富的用法,
+    规定参数的一些规则：
+    javaType、jdbcType、mode、numericScale、
+    resultMap、typeHandler、jdbcTypeName、expression（未来准备支持的功能）
+
+    jdbcType通常需要在某种特定的条件下被设置
+        在我们数据为null的时候，有些数据库可能不能识别mybatis对null的默认处理; 比如Oracle（报错）;
+
+        JdbcType OTHER：无效的类型，因为mybatis对所有null都映射为原生Jdbc的OTHER类型，
+
+        由于全局配置中，jdbcTypeForNull=OTHER; oracle不支持。
+        两种解决方法：
+            1、#{email, jdbcType=NULL};
+            2、jdbcTypeForNull=NULL
+                <setting name="jdbcTypeForNull" value="NULL"/>
+
+    oracle 数据库表字段插入null时报错如下：
+    ### Error updating database.
+    Cause: org.apache.ibatis.type.TypeException: Could not set parameters for mapping: ParameterMapping{property='email', mode=IN, javaType=class java.lang.Object, jdbcType=null, numericScale=null, resultMapId='null', jdbcTypeName='null', expression='null'}.
+    Cause: org.apache.ibatis.type.TypeException: Error setting null for parameter #3 with JdbcType OTHER .
+    Try setting a different JdbcType for this parameter or a different jdbcTypeForNull configuration property.
+    Cause: java.sql.SQLException: Invalid column type: 1111
+
+
+

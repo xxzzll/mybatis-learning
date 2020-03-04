@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+namespace：命名空间，XxxMappper全限定名
+getEmp：XxxMappper接口中对应方法名
+resultType：返回值封装的类型
+#{id}：占位符， 告诉MyBatis创建一个PreparedStatement参数，类似于jdbc的"？"展位符，从传递的参数取出id值并设置进去。
+-->
+<!--
+<mapper namespace="com.huawei.mybatis">
+    <select id="selectEmp" resultType="com.huawei.mybatis.mapper.entities.Employee">
+        select * from tbl_employee where id = #{id}
+    </select>
+</mapper>
+-->
+
+
+<!--与EmployeeMapper接口相绑定，面向接口编程-->
+<mapper namespace="com.huawei.mybatis.mapper.mapper.EmployeeMapper">
+    <!--Map<String, Employee> getEmpByLastNameLikeReturnMap(String lastName);-->
+    <select id="getEmpByLastNameLikeReturnMap" resultType="com.huawei.mybatis.mapper.entities.Employee">
+        select * from tbl_employee where last_name like #{lastName}
+    </select>
+
+    <!--Map<String, Object> getEmpByIdReturnMap(Integer id)-->
+    <select id="getEmpByIdReturnMap" resultType="map">
+        select * from tbl_employee where id=#{id}
+    </select>
+
+    <!--List<Employee> getEmpByLastNameLike(String lastName);-->
+    <!--resultType: 语句返回的希望的类型，如果希望的类型是集合，那resultType应该是集合包含的元素类型-->
+    <select id="getEmpByLastNameLike" resultType="com.huawei.mybatis.mapper.entities.Employee">
+        select * from tbl_employee where last_name like #{lastName}
+    </select>
+
+    <!--Employee getEmpByMap(Map<String, Object> map);-->
+    <select id="getEmpByMap" resultType="com.huawei.mybatis.mapper.entities.Employee">
+         select id, last_name lastName, email, gender from tbl_employee where id = #{id} and last_name = #{lastName}
+    </select>
+
+    <!--select id, last_name lastName, email, gender from tbl_employee where id = #{param1} and last_name=#{param2}-->
+    <select id="getEmpByIdAndLastName" resultType="com.huawei.mybatis.mapper.entities.Employee">
+        select id, last_name lastName, email, gender from tbl_employee where id = #{id} and last_name=#{lastName}
+    </select>
+
+    <select id="getEmpById" resultType="com.huawei.mybatis.mapper.entities.Employee">
+        select id, last_name lastName, email, gender from tbl_employee where id = #{idabcd}
+    </select>
+
+    <!--Long addEmp(Employee employee);
+      获取自增主键策略：
+        parameterType：参数类型，可以省略，
+        mybatis支持自增主键，自增主键的获取，mybatis也是利用statement.getGenreatedKeys();
+        useGeneratedKeys="true"：使用自增主键获取主键值策略
+        keyProperty="id"：指定对应的主键属性，也就是mybatis获取到主键以后，将这个值封装给javaBean的那个属性
+    -->
+
+    <insert id="addEmp" parameterType="com.huawei.mybatis.mapper.entities.Employee"
+            useGeneratedKeys="true" keyProperty="id" databaseId="mysql">
+        insert into tbl_employee(last_name, email, gender) values(#{lastName}, #{email}, #{gender})
+    </insert>
+
+    <!--Oracle不支持自增，Oracle使用序列来模拟自增，
+        每次插入的数据的主键是从序列中拿到的值，如何获取到这个值。
+    非自增主键获取策略：
+
+    -->
+    <insert id="addEmp" databaseId="oracle">
+        /*
+            keyProperty：查出的主键值封装给javaBean的哪个属性
+            order：在当前sql在插入sql之前或之后执行
+            resultType：查询的数据返回值类型
+        */
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+            /*查询主键的sql语句*/
+            select SEQ_EMP.nextval from dual
+        </selectKey>
+        insert into emp(EMPNO, ENAME, JOB) VALUES (#{id}, #{lastName}, #{email})
+    </insert>
+
+    <!--boolean updateEmp(Employee employee);-->
+    <update id="updateEmp">
+        update tbl_employee
+            set last_name=#{lastName},
+                email=#{email},
+                gender=#{gender}
+         where id=#{id}
+    </update>
+
+    <!--Long deleteEmpById(Integer id);-->
+    <delete id="deleteEmpById">
+        DELETE FROM tbl_employee where id=#{id}
+    </delete>
+</mapper>
