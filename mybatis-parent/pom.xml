@@ -13,6 +13,8 @@
         <module>mybatis-02-config</module>
         <module>mybatis-03-mapper</module>
         <module>mybatis-04-DynamicSQL</module>
+        <module>mybatis-05-cache</module>
+        <module>mybatis-06-ssm</module>
     </modules>
 
     <!--POM父工程-->

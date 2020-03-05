@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--MyBatis 全局配置文件，获取SqlSessionFactory-->
+<configuration>
+
+    <settings>
+        <setting name="jdbcTypeForNull" value="NULL"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+
+        <!--开启二级缓存开关-->
+        <setting name="cacheEnabled" value="true"/>
+
+        <!--设置延迟加载-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+
+    <!--5、databaseIdProvider：支持多数据库厂商;
+    type="DB_VENDOR"，VendorDatabaseIdProvider，作用就是得到数据库厂商的标识
+        MySQL、Oracle、SQL Server，...
+-->
+    <databaseIdProvider type="com.huawei.mybatis.ssm.config.MyDatabaseIdProvider">
+        <!--为不同数据库设置别名-->
+        <property name="Oracle" value="oracle"/>
+        <property name="MySQL" value="mysql"/>
+        <property name="SQL Server" value="sqlserver"/>
+    </databaseIdProvider>
+
+</configuration>

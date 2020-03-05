@@ -1,0 +1,6 @@
+/home/xixi/IdeaProjects/mybatis-learning/mybatis-parent/mybatis-06-ssm/src/main/java/com/huawei/mybatis/ssm/entities/Department.java
+/home/xixi/IdeaProjects/mybatis-learning/mybatis-parent/mybatis-06-ssm/src/main/java/com/huawei/mybatis/ssm/service/EmployeeService.java
+/home/xixi/IdeaProjects/mybatis-learning/mybatis-parent/mybatis-06-ssm/src/main/java/com/huawei/mybatis/ssm/entities/Employee.java
+/home/xixi/IdeaProjects/mybatis-learning/mybatis-parent/mybatis-06-ssm/src/main/java/com/huawei/mybatis/ssm/config/MyDatabaseIdProvider.java
+/home/xixi/IdeaProjects/mybatis-learning/mybatis-parent/mybatis-06-ssm/src/main/java/com/huawei/mybatis/ssm/mapper/EmployeeMapper.java
+/home/xixi/IdeaProjects/mybatis-learning/mybatis-parent/mybatis-06-ssm/src/main/java/com/huawei/mybatis/ssm/controller/EmployeeController.java

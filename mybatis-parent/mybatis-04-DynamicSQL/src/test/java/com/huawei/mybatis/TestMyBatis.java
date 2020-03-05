@@ -265,15 +265,31 @@ public class TestMyBatis {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         try{
             // Preparing: insert into tbl_employee(last_name, email, gender, d_id) VALUES (?, ?, ?, ?) , (?, ?, ?, ?)
+            // MySQL(allowMultiQueries=true)  Preparing: insert into tbl_employee(last_name, email, gender, d_id) VALUES (?, ?, ?, ?) ; insert into tbl_employee(last_name, email, gender, d_id) VALUES (?, ?, ?, ?)
             EmployeeMapperDynamicSQL mapper = sqlSession.getMapper(EmployeeMapperDynamicSQL.class);
             List<Employee> emps = new ArrayList<>();
-            emps.add(new Employee(null, "cc", "cc@163.com", 1, new Department(1)));
-            emps.add(new Employee(null, "dd", "dd@163.com", 0, new Department(1)));
+            emps.add(new Employee(null, "ee", "ee@163", 1, new Department(1)));
+            emps.add(new Employee(null, "ff", "ff@163", 0, new Department(1)));
             mapper.batchSaveEmpsForeach(emps);
 
-            //MySQL(allowMultiQueries=true)  Preparing: insert into tbl_employee(last_name, email, gender, d_id) VALUES (?, ?, ?, ?) ; insert into tbl_employee(last_name, email, gender, d_id) VALUES (?, ?, ?, ?)
-
             sqlSession.commit();
+        }finally {
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void testInnerParameter() throws IOException {
+        SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        try{
+            EmployeeMapperDynamicSQL mapper = sqlSession.getMapper(EmployeeMapperDynamicSQL.class);
+            Employee employee1 = new Employee();
+            employee1.setLastName("t");
+            List<Employee> empsTestInnerParameter = mapper.getEmpsTestInnerParameter(employee1);
+            for (Employee employee : empsTestInnerParameter) {
+                System.out.println(employee);
+            }
         }finally {
             sqlSession.close();
         }

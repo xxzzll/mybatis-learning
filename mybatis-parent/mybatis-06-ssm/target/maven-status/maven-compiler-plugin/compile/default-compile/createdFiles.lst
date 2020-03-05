@@ -1,0 +1,6 @@
+com/huawei/mybatis/ssm/entities/Employee.class
+com/huawei/mybatis/ssm/entities/Department.class
+com/huawei/mybatis/ssm/controller/EmployeeController.class
+com/huawei/mybatis/ssm/mapper/EmployeeMapper.class
+com/huawei/mybatis/ssm/service/EmployeeService.class
+com/huawei/mybatis/ssm/config/MyDatabaseIdProvider.class
