@@ -11,6 +11,7 @@
         <module name="mybatis-01-helloworld" />
         <module name="mybatis-02-config" />
         <module name="mybatis-04-DynamicSQL" />
+        <module name="mybatis-07-source" />
         <module name="mybatis-03-mapper" />
       </profile>
     </annotationProcessing>

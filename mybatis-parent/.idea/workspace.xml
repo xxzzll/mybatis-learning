@@ -7,50 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e82241fd-8382-45f1-8c0b-d76b10d0663a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mybatis-05-cache/mybatis-05-cache.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-05-cache/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-05-cache/src/main/java/com/huawei/mybatis/mapper/config/MyDatabaseIdProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-05-cache/src/main/java/com/huawei/mybatis/mapper/entities/Department.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-05-cache/src/main/java/com/huawei/mybatis/mapper/entities/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-05-cache/src/main/java/com/huawei/mybatis/mapper/mapper/DeptmentMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-05-cache/src/main/java/com/huawei/mybatis/mapper/mapper/EmployeeAnnotationMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-05-cache/src/main/java/com/huawei/mybatis/mapper/mapper/EmployeeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-05-cache/src/main/java/com/huawei/mybatis/mapper/mapper/EmployeeMapperDynamicSQL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-05-cache/src/main/java/com/huawei/mybatis/mapper/mapper/EmployeeMapperPlus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-05-cache/src/main/resources/com/huawei/mybatis/mapper/mapper/DeptmentMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-05-cache/src/main/resources/com/huawei/mybatis/mapper/mapper/EmployeeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-05-cache/src/main/resources/com/huawei/mybatis/mapper/mapper/EmployeeMapperDynamicSQL.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-05-cache/src/main/resources/com/huawei/mybatis/mapper/mapper/EmployeeMapperPlus.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-05-cache/src/main/resources/dbconfig.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-05-cache/src/main/resources/ehcache.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-05-cache/src/main/resources/ehcache.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-05-cache/src/main/resources/log4j.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-05-cache/src/main/resources/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-05-cache/src/test/java/com/huawei/mybatis/TestMyBatis.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-06-ssm/mybatis-06-ssm.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-06-ssm/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-06-ssm/src/main/java/com/huawei/mybatis/ssm/controller/EmployeeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-06-ssm/src/main/java/com/huawei/mybatis/ssm/service/EmployeeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-06-ssm/src/main/resources/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-06-ssm/src/main/resources/dbconfig.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-06-ssm/src/main/resources/log4j.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-06-ssm/src/main/resources/logging.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-06-ssm/src/main/resources/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-06-ssm/src/main/resources/mybatis/mapper/EmployeeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-06-ssm/src/main/webapp/WEB-INF/pages/list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-06-ssm/src/main/webapp/WEB-INF/springmvc-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-06-ssm/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-06-ssm/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/documents/MyBatis.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/documents/mybatis-3.4.1.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/documents/mybatis.pptx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mybatis-07-source/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mybatis-07-source/src/main/java/com/huawei/mybatis/entities/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mybatis-07-source/src/main/java/com/huawei/mybatis/mapper/EmployeeMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mybatis-07-source/src/main/resources/log4j.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mybatis-07-source/src/main/resources/mybatis.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mybatis-07-source/src/main/resources/mybatis/mapper/EmployeeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mybatis-07-source/src/main/resources/mybatis/mybatis-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mybatis-07-source/src/test/java/com/huawei/mybatis/TestMyBatis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mybatis-01-helloworld/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis-01-helloworld/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-04-DynamicSQL/src/main/java/com/huawei/mybatis/mapper/mapper/EmployeeMapperDynamicSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-04-DynamicSQL/src/main/java/com/huawei/mybatis/mapper/mapper/EmployeeMapperDynamicSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-04-DynamicSQL/src/main/resources/com/huawei/mybatis/mapper/mapper/EmployeeMapperDynamicSQL.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-04-DynamicSQL/src/main/resources/com/huawei/mybatis/mapper/mapper/EmployeeMapperDynamicSQL.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-04-DynamicSQL/src/test/java/com/huawei/mybatis/TestMyBatis.java" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-04-DynamicSQL/src/test/java/com/huawei/mybatis/TestMyBatis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-04-DynamicSQL/target/classes/com/huawei/mybatis/mapper/mapper/EmployeeMapperDynamicSQL.class" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-04-DynamicSQL/target/classes/com/huawei/mybatis/mapper/mapper/EmployeeMapperDynamicSQL.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-04-DynamicSQL/target/classes/com/huawei/mybatis/mapper/mapper/EmployeeMapperDynamicSQL.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-04-DynamicSQL/target/classes/com/huawei/mybatis/mapper/mapper/EmployeeMapperDynamicSQL.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-04-DynamicSQL/target/test-classes/com/huawei/mybatis/TestMyBatis.class" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-04-DynamicSQL/target/test-classes/com/huawei/mybatis/TestMyBatis.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -155,7 +125,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/mybatis-06-ssm/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/documents" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -171,30 +141,30 @@
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/mybatis-06-ssm/src/main/webapp/WEB-INF" />
-      <recent name="$PROJECT_DIR$/mybatis-06-ssm/src/main/resources" />
-      <recent name="$PROJECT_DIR$/mybatis-06-ssm/src/main/webapp" />
-      <recent name="$PROJECT_DIR$/mybatis-03-mapper/src/main/resources/com/huawei/mybatis/mapper/mapper" />
-      <recent name="$PROJECT_DIR$/mybatis-02-config/src/main/resources/com/huawei/mybatis/config" />
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.huawei.mybatis" />
+      <recent name="com.huawei.mybatis.mapper.config" />
+      <recent name="com.huawei.mybatis.config.mapper" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.huawei.mybatis" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/documents" />
+      <recent name="$PROJECT_DIR$/mybatis-07-source/src/main/resources" />
+      <recent name="$PROJECT_DIR$/mybatis-07-source/src/main/java" />
+      <recent name="$PROJECT_DIR$/mybatis-06-ssm/src/main/resources" />
+      <recent name="$PROJECT_DIR$/mybatis-06-ssm/src/main/webapp/webpage" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.huawei.mybatis.ssm.service" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.huawei.mybatis.mapper.config" />
-      <recent name="com.huawei.mybatis" />
-      <recent name="com.huawei.mybatis.config.mapper" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/documents" />
+      <recent name="$PROJECT_DIR$/mybatis-06-ssm/src/main/webapp/WEB-INF" />
       <recent name="$PROJECT_DIR$/mybatis-06-ssm/src/main/resources" />
-      <recent name="$PROJECT_DIR$/mybatis-06-ssm/src/main/webapp/webpage" />
-      <recent name="$PROJECT_DIR$/mybatis-06-ssm/src/main/java" />
-      <recent name="$PROJECT_DIR$/mybatis-06-ssm/src/main" />
-      <recent name="$PROJECT_DIR$/mybatis-05-cache/src/main/resources" />
+      <recent name="$PROJECT_DIR$/mybatis-06-ssm/src/main/webapp" />
+      <recent name="$PROJECT_DIR$/mybatis-03-mapper/src/main/resources/com/huawei/mybatis/mapper/mapper" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -209,7 +179,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat-9.0.24-8081">
+  <component name="RunManager" selected="JUnit.TestMyBatis.testSource">
     <configuration name="TestMyBatis.test01" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mybatis-05-cache" />
       <extension name="coverage">
@@ -221,22 +191,6 @@
       <option name="PACKAGE_NAME" value="com.huawei.mybatis" />
       <option name="MAIN_CLASS_NAME" value="com.huawei.mybatis.TestMyBatis" />
       <option name="METHOD_NAME" value="test01" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestMyBatis.testBatchSave" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="mybatis-04-DynamicSQL" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.huawei.mybatis.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.huawei.mybatis" />
-      <option name="MAIN_CLASS_NAME" value="com.huawei.mybatis.TestMyBatis" />
-      <option name="METHOD_NAME" value="testBatchSave" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -297,6 +251,22 @@
       <option name="METHOD_NAME" value="testSecoundLevelCache" />
       <option name="TEST_OBJECT" value="method" />
       <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestMyBatis.testSource" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mybatis-07-source" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.huawei.mybatis.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.huawei.mybatis" />
+      <option name="MAIN_CLASS_NAME" value="com.huawei.mybatis.TestMyBatis" />
+      <option name="METHOD_NAME" value="testSource" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -386,19 +356,19 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.TestMyBatis.test01" />
-      <item itemvalue="JUnit.TestMyBatis.testBatchSave" />
       <item itemvalue="JUnit.TestMyBatis.testFirstLevelCache" />
       <item itemvalue="JUnit.TestMyBatis.testInnerParameter" />
       <item itemvalue="JUnit.TestMyBatis.testSecoundLevelCache" />
       <item itemvalue="Tomcat Server.Tomcat-9.0.24-8081" />
+      <item itemvalue="JUnit.TestMyBatis.testSource" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestMyBatis.testSource" />
         <item itemvalue="JUnit.TestMyBatis.testSecoundLevelCache" />
         <item itemvalue="JUnit.TestMyBatis.testFirstLevelCache" />
         <item itemvalue="JUnit.TestMyBatis.test01" />
         <item itemvalue="JUnit.TestMyBatis.testInnerParameter" />
-        <item itemvalue="JUnit.TestMyBatis.testBatchSave" />
       </list>
     </recent_temporary>
   </component>
@@ -437,7 +407,9 @@
       <workItem from="1564815389673" duration="157000" />
       <workItem from="1564970670298" duration="34000" />
       <workItem from="1580381964707" duration="652000" />
-      <workItem from="1583045242049" duration="99067000" />
+      <workItem from="1583045242049" duration="100461000" />
+      <workItem from="1583462337486" duration="26000" />
+      <workItem from="1583462410790" duration="14693000" />
     </task>
     <servers />
   </component>
@@ -481,9 +453,44 @@
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.1/mybatis-3.4.1.jar!/org/apache/ibatis/binding/MapperMethod.class</url>
-          <line>64</line>
-          <option name="timeStamp" value="10" />
+          <url>file://$PROJECT_DIR$/mybatis-07-source/src/test/java/com/huawei/mybatis/TestMyBatis.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.1/mybatis-3.4.1.jar!/org/apache/ibatis/builder/xml/XMLConfigBuilder.class</url>
+          <line>80</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mybatis-07-source/src/test/java/com/huawei/mybatis/TestMyBatis.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mybatis-07-source/src/test/java/com/huawei/mybatis/TestMyBatis.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.1/mybatis-3.4.1.jar!/org/apache/ibatis/binding/MapperRegistry.class</url>
+          <line>33</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.1/mybatis-3.4.1.jar!/org/apache/ibatis/binding/MapperProxyFactory.class</url>
+          <line>34</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.1/mybatis-3.4.1.jar!/org/apache/ibatis/session/Configuration.class</url>
+          <line>513</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.1/mybatis-3.4.1.jar!/org/apache/ibatis/executor/statement/PreparedStatementHandler.class</url>
+          <line>54</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
