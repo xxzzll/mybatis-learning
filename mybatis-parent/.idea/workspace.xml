@@ -7,21 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e82241fd-8382-45f1-8c0b-d76b10d0663a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/documents/MyBatis.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documents/mybatis-3.4.1.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documents/mybatis.pptx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-07-source/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-07-source/src/main/java/com/huawei/mybatis/entities/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-07-source/src/main/java/com/huawei/mybatis/mapper/EmployeeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-07-source/src/main/resources/log4j.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-07-source/src/main/resources/mybatis.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-07-source/src/main/resources/mybatis/mapper/EmployeeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-07-source/src/main/resources/mybatis/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-07-source/src/test/java/com/huawei/mybatis/TestMyBatis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mybatis-01-helloworld/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis-01-helloworld/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis-07-source/src/test/java/com/huawei/mybatis/TestMyBatis.java" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-07-source/src/test/java/com/huawei/mybatis/TestMyBatis.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -409,7 +397,7 @@
       <workItem from="1580381964707" duration="652000" />
       <workItem from="1583045242049" duration="100461000" />
       <workItem from="1583462337486" duration="26000" />
-      <workItem from="1583462410790" duration="14693000" />
+      <workItem from="1583462410790" duration="19602000" />
     </task>
     <servers />
   </component>
@@ -454,7 +442,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/mybatis-07-source/src/test/java/com/huawei/mybatis/TestMyBatis.java</url>
-          <line>58</line>
+          <line>77</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -464,12 +452,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/mybatis-07-source/src/test/java/com/huawei/mybatis/TestMyBatis.java</url>
-          <line>63</line>
+          <line>82</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/mybatis-07-source/src/test/java/com/huawei/mybatis/TestMyBatis.java</url>
-          <line>66</line>
+          <line>85</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
