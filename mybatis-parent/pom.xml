@@ -24,7 +24,7 @@
     <properties>
         <log4j.version>1.2.17</log4j.version>
         <mybatis.version>3.4.1</mybatis.version>
-        <mysql.version>5.1.46</mysql.version>
+        <mysql.version>8.0.16</mysql.version>
         <oracle.version>11.2</oracle.version>
         <lombok.version>1.16.20</lombok.version>
         <junit.version>4.12</junit.version>
